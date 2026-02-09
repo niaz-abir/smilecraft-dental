@@ -1,6 +1,5 @@
-import React from 'react';
+
 import Banner from './Banner';
-import HotJobs from './HotJobs';
 import AboutMe from './AboutMe';
 import ServicesSection from './Service';
 import ClearAlignerSection from './ClearAlignerSection';
@@ -11,7 +10,7 @@ import ChooseUs from './ChooseUs';
 
 const MainHome = () => {
 
-    // const jobPromise = fetch("http://localhost:3000/jobs").then(res=>res.json())
+ 
     
     return (
         <div>

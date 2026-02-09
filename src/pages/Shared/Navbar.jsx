@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { MdOutlinePermPhoneMsg } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { LuStethoscope } from "react-icons/lu";
