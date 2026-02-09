@@ -78,7 +78,6 @@ const ContactUs = () => {
                 <dd className="mt-2 text-[18px] text-black">
                   Monday – Friday: 9am to 8pm <br />
                   Saturday: 10am to 6pm <br />
-                  Sunday: 12pm to 4pm
                 </dd>
               </div>
             </div>

@@ -15,7 +15,7 @@ const Banner = () => {
 
         <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
           <h1 className="text-5xl font-bold leading-tight mb-4">
-            Welcome To Best Dental Clinic In Your City
+            Welcome To Best Dental Clinic In Your City!
           </h1>
           <p className="text-lg text-gray-300 mb-8">
             Discover amazing features and services that await you.
