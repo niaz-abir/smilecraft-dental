@@ -1,0 +1,133 @@
+import React, { useState, useEffect } from "react";
+import { MdOutlinePermPhoneMsg } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
+import { AiOutlineMenuFold } from "react-icons/ai";
+import { LuStethoscope } from "react-icons/lu";
+import { NavLink } from "react-router";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className=" shadow-md shadow-[#b1aa9c] mb-4 ml-0 lg:ml-6 mr-0 lg:mr-6 rounded-sm">
+      <nav className="pt-2">
+        <div className="max-w-screen-xl flex flex-wrap items-center  justify-between mx-auto p-4">
+          <NavLink
+          to="/"
+          className="flex gap-2 ml-0 lg:-ml-16 items-center text-3xl font-bold">
+            <LuStethoscope />
+            SmileCraft Dental
+          </NavLink>
+
+          {/* <img src={image3} alt=""/> */}
+          <button
+            onClick={toggleMenu}
+            data-collapse-toggle="navbar-default"
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm   rounded-lg md:hidden text-[24px] focus:outline-none "
+            aria-controls="navbar-default"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">Open main menu</span>
+            <AiOutlineMenuFold size={40} />
+          </button>
+          <div
+            className={`${
+              isMenuOpen ? "block" : "hidden"
+            } w-full md:block md:w-auto`}
+            id="navbar-default"
+          >
+            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-black  ">
+              <li>
+                <a
+                  href="#about-us"
+                  className="block py-2 px-3 text-[20px] lg:w-full  w-36 text-black rounded md:border-0"
+                >
+                  About us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#service"
+                  className="block py-2 px-3 text-[20px] lg:w-full   w-36 text-black rounded md:border-0"
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <NavLink
+                  to="/team"
+                  className="block py-2 px-3 text-[20px] lg:w-full   w-36 text-black rounded md:border-0"
+                >
+                  Team
+                </NavLink>
+              </li>
+              <li>
+                <a
+                  href="#review"
+                  className="block py-2 px-3 text-[20px] lg:w-full   w-36 text-black rounded md:border-0"
+                >
+                  Review
+                </a>
+              </li>
+              <li>
+                <h2
+                  href="#contact-us"
+                  className="block py-2 px-3 text-[20px] lg:w-full  w-36 text-black rounded md:border-0"
+                >
+                  Contact Us
+                </h2>
+              </li>
+              <li>
+                <NavLink
+                  to="/appointment"
+                
+                  className="p-2 flex items-center gap-2 text-[20px] lg:w-full bg-gradient-to-r from-[#2D7699] to-[#274a5b]  w-56 text-white rounded md:border-0"
+                >
+                  Make Appointment
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {isScrolled && (
+        <div className="fixed bottom-10 right-10 z-50">
+          <a
+            href="https://wa.me/+1 425 548-4872"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" p-3 rounded-full shadow-lg text-black"
+          >
+            <FaWhatsapp
+              size={50}
+              className="p-2 text-[#25D366] bg-[#23131c] rounded-md"
+            />
+          </a>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;
